@@ -18,7 +18,8 @@ export function rules({ mode }: IConfig): webpack.RuleSetRule[] {
         options: {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes(".module.")),
-            localIdentName: mode === EMode.dev ? "[path][name]__[local]" : "[hash]"
+            localIdentName:
+              mode === EMode.dev ? "[path][name]__[local]" : "[hash]",
           },
         },
       },
@@ -26,5 +27,10 @@ export function rules({ mode }: IConfig): webpack.RuleSetRule[] {
     ],
   };
 
-  return [typescriptLoader, sassLoader];
+  const svgLoader: webpack.RuleSetRule = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
+  return [typescriptLoader, sassLoader, svgLoader];
 }

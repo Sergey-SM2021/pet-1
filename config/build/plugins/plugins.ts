@@ -9,6 +9,7 @@ export function plugins({paths}: IConfig): webpack.WebpackPluginInstance[] {
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
-    new miniCssExtractPlugin({})
+    new miniCssExtractPlugin({}),
+    new webpack.HotModuleReplacementPlugin()
   ])
 }

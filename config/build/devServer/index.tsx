@@ -3,8 +3,9 @@ import { IConfig } from "../types/config";
 
 export function devServer(options: IConfig): Configuration {
   return {
-    open: false,
+    open: true,
     port: options.port,
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true,
   };
 }
