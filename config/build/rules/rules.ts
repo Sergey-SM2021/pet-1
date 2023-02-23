@@ -3,12 +3,6 @@ import type webpack from 'webpack'
 import miniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export function rules ({ mode }: IConfig): webpack.RuleSetRule[] {
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  }
-
   const sassLoader: webpack.RuleSetRule = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -27,10 +21,43 @@ export function rules ({ mode }: IConfig): webpack.RuleSetRule[] {
     ]
   }
 
+  const babelJS = {
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+
+  const babelTS = {
+    test: /\.m?ts$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', '@babel/preset-typescript']
+      }
+    }
+  }
+
+  const babelReact = {
+    test: /\.tsx?$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }], '@babel/preset-typescript']
+      }
+    }
+  }
+
   const svgLoader: webpack.RuleSetRule = {
     test: /\.svg$/,
     use: ['@svgr/webpack']
   }
 
-  return [typescriptLoader, sassLoader, svgLoader]
+  return [babelJS, babelTS, babelReact, sassLoader, svgLoader]
 }
