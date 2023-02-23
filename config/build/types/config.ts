@@ -1,17 +1,17 @@
-export enum EMode{
-    "dev" = "development",
-    "prod" = "production"
+export enum EMode {
+  'dev' = 'development',
+  'prod' = 'production'
 }
 
-export interface IPaths{
-    entry:string,
-    output:string,
-    html:string
-    src:string
+export interface IPaths {
+  entry: string
+  output: string
+  html: string
+  src: string
 }
 
-export interface IConfig{
-    paths:IPaths,
-    mode:EMode
-    port:number
+export interface IConfig {
+  paths: IPaths
+  mode: EMode
+  port: number
 }

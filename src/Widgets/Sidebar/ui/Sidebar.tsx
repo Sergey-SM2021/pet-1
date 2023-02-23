@@ -1,12 +1,11 @@
-import { SwitcherLang } from "Widgets/SwitcherLang";
-import style from "./Sidebar.module.scss";
+import { type FC } from 'react'
+import { SwitcherLang } from 'Widgets/SwitcherLang'
+import style from './Sidebar.module.scss'
 
-interface ISidebar {}
-
-export const Sidebar = () => {
+export const Sidebar: FC = () => {
   return (
     <div className={style.sidebar}>
       <SwitcherLang />
     </div>
-  );
-};
+  )
+}

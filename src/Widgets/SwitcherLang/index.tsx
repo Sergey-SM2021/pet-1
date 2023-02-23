@@ -1,1 +1,1 @@
-export { SwitcherLang } from "./SwitcherLang";
+export { SwitcherLang } from './SwitcherLang'

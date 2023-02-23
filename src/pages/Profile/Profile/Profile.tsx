@@ -1,3 +1,7 @@
-export default function Profile() {
-  return <div>Profile</div>;
+import { type FC } from 'react'
+
+const Profile: FC = () => {
+  return <div>Profile</div>
 }
+
+export default Profile

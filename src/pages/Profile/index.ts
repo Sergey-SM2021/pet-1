@@ -1,1 +1,1 @@
-export { AsyncProfile as Profile } from "./Profile/Profile.async";
+export { AsyncProfile as Profile } from './Profile/Profile.async'

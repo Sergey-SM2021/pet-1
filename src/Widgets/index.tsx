@@ -1,3 +1,3 @@
-export { Navbar } from "./Navbar/index";
-export { Sidebar } from "./Sidebar";
-export { SwitcherTheme } from "./SwitcherTheme";
+export { Navbar } from './Navbar/index'
+export { Sidebar } from './Sidebar'
+export { SwitcherTheme } from './SwitcherTheme'

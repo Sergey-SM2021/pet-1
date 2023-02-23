@@ -1,18 +1,18 @@
-import classNames from "classnames";
-import { ButtonHTMLAttributes, FC, HTMLProps } from "react";
-import style from "./Button.module.scss";
+import classNames from 'classnames'
+import { type ButtonHTMLAttributes, type FC } from 'react'
+import style from './Button.module.scss'
 
-type TTheme = "empty";
+type TTheme = 'empty'
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  theme: TTheme;
+  theme: TTheme
 }
 
 export const Button: FC<IButton> = (props) => {
-  const { theme, className, children, ...rest } = props;
+  const { theme, className, children, ...rest } = props
   return (
     <button className={classNames(className, style[theme])} {...rest}>
       {children}
     </button>
-  );
-};
+  )
+}
